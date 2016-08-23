@@ -1,38 +1,23 @@
-/*global require, dat*/
 
-require.config({
-  deps : ['vendor/Events', 'vendor/lodash','vendor/dat.gui.min']
-});
+"use strict";
 
-require(
-  [
-    'lib/ParticleSystem',
-    'lib/Display',
-    'lib/Vector',
-    'gui'
-  ],
-  function(ParticleSystem, Display, Vector, GUI){
-    "use strict";
+let ParticleSystem = require ("./lib/ParticleSystem.js").ParticleSystem;
+let Vector = require ("./lib/Vector.js").Vector;
 
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    window.addEventListener('resize', resize); resize();
+function main (){
 
-    var display = new Display(document.getElementById('canvas'));
-    display.init();
-    var particleSystem = new ParticleSystem().init(display);
-    display.start();
-
-    var gui = new GUI(particleSystem, display);
-
+    var particleSystem = new ParticleSystem();
     particleSystem.addEmitter(new Vector(360,230),Vector.fromAngle(0,2));
     particleSystem.addField(new Vector(700,230), -140);
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    for (var i = 0; i < 5; i++) {
+      particleSystem.evolve(200);
+      particleSystem.getParticles().forEach(function (part) {
+        console.log(part);
+      });
     }
+    console.log("total = " + particleSystem.getParticleCount());
+    console.log("emitters = " + particleSystem.getEmitterCount());
+    console.log("fields = " + particleSystem.getFieldCount());
+}
 
-  }
-);
-
+main ();
