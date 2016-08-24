@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/figurebelow/node-particles.svg?branch=master)](https://travis-ci.org/figurebelow/node-particles)
+[![CircleCI](https://circleci.com/gh/figurebelow/node-particles/tree/master.svg?style=svg)](https://circleci.com/gh/figurebelow/node-particles/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/figurebelow/node-particles/badge.svg?branch=master)](https://coveralls.io/github/figurebelow/node-particles?branch=master)
 Node-Particles
 ====================
