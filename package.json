@@ -1,7 +1,7 @@
 {
   "name": "node-particles",
   "version": "1.0.1",
-  "description": "A particle system for NodeJs",
+  "description": "A simple particle system for NodeJs",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
+    "name": "node-particles",
     "type": "git",
     "url": "git+https://github.com/figurebelow/node-particles.git"
   },
