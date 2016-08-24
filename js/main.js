@@ -1,8 +1,8 @@
 
 "use strict";
 
-let ParticleSystem = require ("./lib/ParticleSystem.js").ParticleSystem;
-let Vector = require ("./lib/Vector.js").Vector;
+let ParticleSystem = require ("./ParticleSystem.js").ParticleSystem;
+let Vector = require ("./Vector.js").Vector;
 
 function main (){
 

@@ -1,6 +1,6 @@
 {
   "name": "node-particles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple particle system for NodeJs",
   "main": "index.js",
   "directories": {
@@ -24,5 +24,15 @@
   "bugs": {
     "url": "https://github.com/figurebelow/node-particles/issues"
   },
-  "homepage": "https://github.com/figurebelow/node-particles#readme"
+  "homepage": "https://github.com/figurebelow/node-particles#readme",
+  "scripts": {
+    "test": "mocha ./tests",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/"
+  },
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mocha": "2.4.5"
+  }
 }
