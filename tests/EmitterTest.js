@@ -8,22 +8,22 @@
 
 var assert = require ("assert");
 var Emitter = require ("../js/Emitter.js").Emitter;
-var Vector = require ("../js/Vector.js").Vector;
+var Point = require ("../js/Point.js").Point;
 
 describe ("Emitter", function () {
 
   it ("initializes an emitter", function (){
-    var emitter = new Emitter (new Vector(10,10), Vector.fromAngle(10,10));
+    var emitter = new Emitter (new Point(10,10), Point.fromAngle(10,10));
   });
 
   it ("moves an emitter", function () {
-    var emitter = new Emitter (new Vector(10,10), Vector.fromAngle(10,10));
-    emitter.moveTo(new Vector(20,20));
-    assert.deepEqual (emitter.position, new Vector(20,20));
+    var emitter = new Emitter (new Point(10,10), Point.fromAngle(10,10));
+    emitter.moveTo(new Point(20,20));
+    assert.deepEqual (emitter.position, new Point(20,20));
   });
 
   it ("adds a particle", function () {
-    var emitter = new Emitter (new Vector(10,10), Vector.fromAngle(10,10));
+    var emitter = new Emitter (new Point(10,10), Point.fromAngle(10,10));
     var newParticle = emitter.addParticle();
     assert.deepEqual (newParticle.position, emitter.position);
   });

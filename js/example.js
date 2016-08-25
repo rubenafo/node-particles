@@ -2,13 +2,13 @@
 "use strict";
 
 let ParticleSystem = require ("./ParticleSystem.js").ParticleSystem;
-let Vector = require ("./Vector.js").Vector;
+let Point = require ("./Point.js").Point;
 
 function main (){
 
     var particleSystem = new ParticleSystem();
-    particleSystem.addEmitter(new Vector(360,230),Vector.fromAngle(0,2));
-    particleSystem.addField(new Vector(700,230), -140);
+    particleSystem.addEmitter(new Point(360,230),Point.fromAngle(0,2));
+    particleSystem.addField(new Point(700,230), -140);
     for (var i = 0; i < 5; i++) {
       particleSystem.evolve(200);
       particleSystem.getParticles().forEach(function (part) {

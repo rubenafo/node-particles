@@ -1,6 +1,6 @@
 {
   "name": "node-particles",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple particle system for NodeJs",
   "main": "./js/ParticleSystem.js",
   "directories": {
@@ -23,13 +23,15 @@
   },
   "homepage": "https://github.com/figurebelow/node-particles#readme",
   "scripts": {
+    "gendoc": "docco ./js/*.js",
     "test": "mocha ./tests"
   },
   "readmeFilename": "README.md",
   "devDependencies": {
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.2",
-    "mocha": "2.4.5"
+    "mocha": "2.4.5",
+    "docco": "0.7"
   },
   "engines": {
     "node": ">=0.10.15"

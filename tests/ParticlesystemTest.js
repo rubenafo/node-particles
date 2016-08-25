@@ -10,26 +10,26 @@ var assert = require ("assert");
 var Emitter = require ("../js/Emitter.js").Emitter;
 var ParticleSystem = require ("../js/ParticleSystem.js").ParticleSystem;
 var Field = require ("../js/Field.js").Field;
-var Vector = require ("../js/Vector.js").Vector;
+var Point = require ("../js/Point.js").Point;
 
 describe ("ParticleSystem", function () {
 
   it ("Adds an emitter", function () {
     var ps = new ParticleSystem ();
-    ps.addEmitter (new Emitter(new Vector(10,10), Vector.fromAngle(30,30)));
+    ps.addEmitter (new Emitter(new Point(10,10), Point.fromAngle(30,30)));
     assert.equal(ps.emitters.length, 1);
   });
 
   it ("Adds a field", function () {
     var ps = new ParticleSystem ();
-    ps.addField (new Field(new Vector(10,10), 20));
+    ps.addField (new Field(new Point(10,10), 20));
     assert.equal(ps.fields.length, 1);
   });
 
   it ("Evolves given one emitter", function () {
     var ps = new ParticleSystem ();
-    ps.addEmitter (new Vector(10,10), Vector.fromAngle(30,30));
-    ps.addField (new Vector(10,10), 20);
+    ps.addEmitter (new Point(10,10), Point.fromAngle(30,30));
+    ps.addField (new Point(10,10), 20);
     ps.evolve(1);
     assert.equal(ps.getParticleCount(), 4);
   });
