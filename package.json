@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/figurebelow/node-particles#readme",
   "scripts": {
-    "test": "mocha ./tests",
-    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./tests/"
+    "test": "mocha ./tests"
   },
   "readmeFilename": "README.md",
   "devDependencies": {

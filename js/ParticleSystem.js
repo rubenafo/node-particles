@@ -73,3 +73,7 @@ class ParticleSystem {
 };
 
 module.exports.ParticleSystem = ParticleSystem;
+module.exports.Vector = Vector;
+module.exports.Field = Field;
+module.exports.Emitter = Emitter;
+module.exports.Particle = Particle;
