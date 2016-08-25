@@ -17,3 +17,4 @@ Then from your scripts you can consume it using require:
 ```js
 var ns = require ("node-particles")
 ```
+## Quick Example
