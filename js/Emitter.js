@@ -8,13 +8,13 @@ let Particle = require ("./Particle.js").Particle;
   class Emitter {
  
    // Creates a new Emitter given a point in space and emission velocity
-   constructor (point,velocity) {
+   constructor (point,velocity, size, particleLife, spread, emissionRate) {
     this.position     = point;
     this.velocity     = velocity;
-    this.size         = 15;
-    this.particleLife = -1;
-    this.spread       = Math.PI / 32;
-    this.emissionRate = 4;
+    this.size         = size || 15;
+    this.particleLife = particleLife || -1;
+    this.spread       = spread || Math.PI / 32;
+    this.emissionRate = emissionRate || 4;
     this.jitter     = 0.05;
   }
 
