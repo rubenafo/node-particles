@@ -5,7 +5,7 @@ let Point = require ("./Point.js").Point;
 
 
   class Particle {
-  
+
     // Creates a new Particle given a x,y point and a velocity
     constructor (point,velocity){
       this.position     = point;
@@ -22,17 +22,16 @@ let Point = require ("./Point.js").Point;
     var totalAccelerationX = 0;
     var totalAccelerationY = 0;
     fields.forEach (function(field) {
-        // inlining what should be Point object methods for performance reasons
         var vectorX = field.position.x - that.position.x;
         var vectorY = field.position.y - that.position.y;
-        var force = field.mass / 
+        var force = field.mass /
             Math.pow((vectorX*vectorX+field.mass/2+vectorY*vectorY+field.mass/2),1.5);
         totalAccelerationX += vectorX * force;
         totalAccelerationY += vectorY * force;
     });
     this.acceleration = new Point(totalAccelerationX,totalAccelerationY);
   }
-  
+
   // Moves this particle according to its position, its velocity and its acceleration
   move() {
     this.velocity.x += this.acceleration.x;

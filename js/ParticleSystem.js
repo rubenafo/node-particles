@@ -15,11 +15,12 @@ class ParticleSystem {
     this.emitters = [];
     this.fields = [];
     this.elapsed = 0;
+    this.gen = false;
   };
 
   // Adds a new Emitter, given a point in space and a velocity
-  addEmitter(point, velocity) {
-    this.emitters.push(new Emitter(point, velocity));
+  addEmitter(point, velocity, size, particleLife, spread, emissionRate) {
+    this.emitters.push(new Emitter(point, velocity, size, particleLife, spread, emissionRate));
   }
 
   // Adds a new Field, given a point in space and its mass
