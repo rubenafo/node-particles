@@ -45,3 +45,6 @@ ps.getParticles().forEach (function (p) {
   console.log(p.position); // displays each particle position
 });
 ```
+## License
+
+Please check the LICENSE file located at the root of this reposity.
