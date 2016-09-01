@@ -1,6 +1,6 @@
 {
   "name": "node-particles",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A simple particle system for NodeJs",
   "main": "./js/ParticleSystem.js",
   "directories": {
