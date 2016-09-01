@@ -9,6 +9,9 @@ This repository provides a simple, programatic way of defining a particle system
 The base functionality has been forked and adapted from [JavaScript-Particle-System](http://jsoverson.github.com/JavaScript-Particle-System/) so if you are looking for a particle system for the browser that's the place to go.
 There is also a very nice article from the same author [here](https://software.intel.com/en-us/html5/hub/blogs/build-a-javascript-particle-system-in-200-lines#).
 
+<img src="https://github.com/figurebelow/node-particles/blob/master/docs/scrs/part1.png" width="200">
+<img src="https://github.com/figurebelow/node-particles/blob/master/docs/scrs/part2.png" width="200">
+<img src="https://github.com/figurebelow/node-particles/blob/master/docs/scrs/part3.png" width="200">
 
 ## Usage
 The easiest way to get the library is to use npm:
