@@ -109,7 +109,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>   getMagnitude () {  
+            <div class="content"><div class='highlight'><pre>   getMagnitude () {
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-keyword">this</span>.x * <span class="hljs-keyword">this</span>.x + <span class="hljs-keyword">this</span>.y * <span class="hljs-keyword">this</span>.y);
     }</pre></div></div>
             
@@ -292,7 +292,9 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">static</span> fromAngle (angle, magnitude) {
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Point(magnitude * <span class="hljs-built_in">Math</span>.cos(angle), magnitude * <span class="hljs-built_in">Math</span>.sin(angle));
+
+      <span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> Point(magnitude * <span class="hljs-built_in">Math</span>.cos(angle), magnitude * <span class="hljs-built_in">Math</span>.sin(angle));
+      <span class="hljs-keyword">return</span> p;
     }
 };
 <span class="hljs-built_in">module</span>.exports.Point = Point;</pre></div></div>
