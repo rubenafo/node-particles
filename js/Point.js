@@ -2,7 +2,7 @@
 
 
   class Point {
-
+   
    // Instantiates a new Point given x and y
    constructor (x,y) {
     this.x = x || 0;
@@ -10,7 +10,7 @@
    }
 
    // Returns the magnitude of a point considering it a vector starting from (0,0)
-   getMagnitude () {
+   getMagnitude () {  
     return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 
@@ -85,7 +85,7 @@
 
     // Returns a new point given the angle from (0,0) and a certain magnitude
     static fromAngle (angle, magnitude) {
-
+      
       var p = new Point(magnitude * Math.cos(angle), magnitude * Math.sin(angle));
       return p;
     }
