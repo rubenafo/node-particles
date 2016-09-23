@@ -14,22 +14,22 @@ class Random {
           this.seed += seed[i];
         }
       }
-      this.seed = seed;
+      this.seed = seed !== undefined ? seed: Math.random();
     }
 
     val (lower, upper) {
-
-      console.log(this.seed)
-      // if (upper == undefined)
-      // {
-      //   upper = lower; // consider [0,lower]
-      // }
-      // var s = Math.sin(this.seed);
-      // console.log(s)
-      // this.seed = s - Math.floor(s);
-      // return Math.floor(this.seed * upper);
       var x = Math.sin(this.seed++) * 10000;
-      return x - Math.floor(x);
+      if (upper === undefined) {
+        if (lower === undefined) { // both undefined, assume (0,1)
+          return x - Math.floor(x);
+        }
+        else { // we only have lower, assume (0,lower)
+          return (x - Math.floor(x)) * lower;
+        }
+      }
+      else {
+        return lower + ((x - Math.floor(x)) * (upper-lower))
+      }
     }
 
     arcsine (min, max) {
@@ -302,7 +302,3 @@ class Random {
 };
 
 module.exports.Random = Random;
-
-var r = new Random(23);
-for (var i = 0; i < 10; i++)
-  console.log(r.val(0,1));

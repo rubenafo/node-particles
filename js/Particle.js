@@ -29,7 +29,6 @@ let Point = require ("./Point.js").Point;
       var distance = Math.pow((vectorX*vectorX+vectorY*vectorY),0.5);
       var normForce = new Point (vectorX/distance, vectorY/distance);
       var force = field.mass * 50 / Math.pow(distance,2);
-
       totalAccelerationX += normForce.x * force;
       totalAccelerationY += normForce.y * force;
     });
