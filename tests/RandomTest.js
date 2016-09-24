@@ -128,7 +128,7 @@ describe("Random", function () {
 
         it ("should generate values in [0,1] when no parameters are passed and no seed is used", function () {
           var r = new Random ();
-          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.val();});
+          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.random();});
           results.forEach (function (item) {
             expect(item).be.a("number").gt(0).lt(1);
           });
@@ -136,7 +136,7 @@ describe("Random", function () {
 
         it ("should generate values in [0,1] when no parameters are passed", function () {
           var r = new Random (900);
-          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.val();});
+          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.random();});
           results.forEach (function (item) {
             expect(item).be.a("number").gt(0).lt(1);
           });
@@ -144,7 +144,7 @@ describe("Random", function () {
 
         it ("should generate values in [0,val] when one parameter is passed", function () {
           var r = new Random (900);
-          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.val(20);});
+          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.random(20);});
           results.forEach (function (item) {
             expect(item).be.a("number").gt(0).lt(20);
           });
@@ -152,7 +152,7 @@ describe("Random", function () {
 
         it ("should generate values in [low,up] when two parameters are used", function () {
           var r = new Random (900);
-          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.val(15,23);});
+          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.random(15,23);});
           results.forEach (function (item) {
             expect(item).be.a("number").gt(15).lt(23);
           });

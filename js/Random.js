@@ -17,7 +17,12 @@ class Random {
       this.seed = seed !== undefined ? seed: Math.random();
     }
 
-    val (lower, upper) {
+    setSeed (seed) {
+      if (seed)
+        this.seed = seed;
+    }
+
+    random (lower, upper) {
       var x = Math.sin(this.seed++) * 10000;
       if (upper === undefined) {
         if (lower === undefined) { // both undefined, assume (0,1)
@@ -224,7 +229,7 @@ class Random {
     };
 
      uniform (min, max) {
-        var init = this.seed !== undefined? this.val() : Math.random();
+        var init = this.seed !== undefined? this.random() : Math.random();
         return min + (max - min) * init;
     };
 

@@ -5,6 +5,7 @@ let Point = require ("./Point.js").Point;
 let Field = require ("./Field.js").Field;
 let Emitter = require ("./Emitter.js").Emitter;
 let Particle = require ("./Particle.js").Particle;
+let Random = require ("./Random.js").Random;
 
 class ParticleSystem {
 
@@ -16,17 +17,27 @@ class ParticleSystem {
     this.fields = [];
     this.elapsed = 0;
     this.gen = false;
+    this.rand = new Random();
+    var that = this;
     if (points !== undefined) {
       points.forEach(function (point) {
-        this.particles.push(new Particle(point));
+        that.particles.push(new Particle(point));
       });
     }
     return this;
   };
 
+  // Sets the distribution function
+  seed (val) {
+    if (val !== undefined) {
+      this.rand.setSeed(val);
+    }
+    return this;
+  }
+
   // Adds a new Emitter, given a point in space and a velocity
   addEmitter(point, velocity, xsize, ysize, particleLife, spread, emissionRate) {
-    this.emitters.push(new Emitter(point, velocity, xsize, ysize, particleLife, spread, emissionRate));
+    this.emitters.push(new Emitter(point, velocity, xsize, ysize, particleLife, spread, emissionRate).seed(this.rand.random()));
     return this;
   }
 
@@ -39,6 +50,35 @@ class ParticleSystem {
   // Sets the maximum number of particles in the system
   setMaxParticles (max) {
     this.maxParticles = max;
+    return this;
+  }
+
+  bounded (width, height) {
+    this.maxHeight = height;
+    this.maxWidth = width;
+    return this;
+  }
+
+  // Cleans the traces that are out of the boundaries
+  clean () {
+    if (this.maxHeight === undefined || this.maxWidth == undefined)
+      return;
+    var that = this;
+    this.particles.forEach (function (part, i) { // check the traces
+        var newTraces = [];
+        part.getTrace().forEach (function (pos, i) {
+          if ( (pos.x <= that.maxWidth && pos.x > -50) && (pos.y <= that.maxHeight && pos.y > -50)) {
+            newTraces.push(pos);
+          }
+        });
+        part.traceRecord = newTraces;
+    });
+
+    var i = this.particles.length; // a particle out ot the limits without traces is removed
+    while (i--) {
+      if (!this.particles[i].getTrace().length)
+        this.particles.splice(i,1);
+    }
     return this;
   }
 
@@ -87,7 +127,7 @@ class ParticleSystem {
         part.move();
       });
     };
-    return this;
+    return this.clean();
   }
 };
 
