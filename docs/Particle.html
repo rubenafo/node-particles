@@ -45,6 +45,11 @@
                 </a>
               
                 
+                <a class="source" href="Random.html">
+                  Random.js
+                </a>
+              
+                
                 <a class="source" href="example.html">
                   example.js
                 </a>
@@ -123,9 +128,16 @@
     <span class="hljs-keyword">var</span> totalAccelerationX = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">var</span> totalAccelerationY = <span class="hljs-number">0</span>;
     fields.forEach (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">field</span>) </span>{
-        <span class="hljs-keyword">var</span> vectorX = field.position.x - that.position.x;
-        <span class="hljs-keyword">var</span> vectorY = field.position.y - that.position.y;
-        <span class="hljs-keyword">var</span> distance = <span class="hljs-built_in">Math</span>.pow((vectorX*vectorX+vectorY*vectorY),<span class="hljs-number">0.5</span>);</pre></div></div>
+      <span class="hljs-keyword">var</span> vectorX = field.position.x - that.position.x;
+      <span class="hljs-keyword">var</span> vectorY = field.position.y - that.position.y;
+      <span class="hljs-keyword">var</span> distance = <span class="hljs-built_in">Math</span>.pow((vectorX*vectorX+vectorY*vectorY),<span class="hljs-number">0.5</span>);
+      <span class="hljs-keyword">var</span> normForce = <span class="hljs-keyword">new</span> Point (vectorX/distance, vectorY/distance);
+      <span class="hljs-keyword">var</span> force = field.mass * <span class="hljs-number">50</span> / <span class="hljs-built_in">Math</span>.pow(distance,<span class="hljs-number">2</span>);
+      totalAccelerationX += normForce.x * force;
+      totalAccelerationY += normForce.y * force;
+    });
+    <span class="hljs-keyword">this</span>.acceleration = <span class="hljs-keyword">new</span> Point(totalAccelerationX,totalAccelerationY);
+  }</pre></div></div>
             
         </li>
         
@@ -135,56 +147,6 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              <p> console.log(distance)</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">var</span> normForce = <span class="hljs-keyword">new</span> Point (vectorX/distance, vectorY/distance);
-        <span class="hljs-keyword">var</span> force = field.mass * <span class="hljs-number">5</span> * <span class="hljs-number">10</span>  / <span class="hljs-built_in">Math</span>.pow(distance,<span class="hljs-number">2</span>);
-
-        totalAccelerationX += normForce.x * force;
-        totalAccelerationY += normForce.y * force;</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              <p>console.log(“x = “ + vectorX, “y = “ + vectorY + “, force = “ + force);</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    });
-    <span class="hljs-keyword">this</span>.acceleration = <span class="hljs-keyword">new</span> Point(totalAccelerationX,totalAccelerationY);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-6">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
-              </div>
-              <p>console.log(“new accel = “, this.acceleration)</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  }</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-7">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>Moves this particle according to its position, its velocity and its acceleration</p>
 
@@ -201,11 +163,11 @@
         </li>
         
         
-        <li id="section-8">
+        <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <p>Returns the position of this particle</p>
 
@@ -216,11 +178,11 @@
         </li>
         
         
-        <li id="section-9">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Returns the trace history of the particle</p>
 
