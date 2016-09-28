@@ -157,5 +157,13 @@ describe("Random", function () {
             expect(item).be.a("number").gt(15).lt(23);
           });
         });
+
+        it ("should generate values when a string is used as seed", function () {
+          var r = new Random ("bluecoat");
+          var results = [1,2,3,4,5,6,7,8,9,10].map(function () { return r.random(10);});
+          results.forEach (function (item) {
+            expect(item).be.a("number").gt(0).lt(10);
+          });
+        });
     });
 });

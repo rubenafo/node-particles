@@ -10,11 +10,13 @@ class Random {
     constructor (seed) {
       if (typeof(seed) === "string") {
         var i = seed.length;
+        this.seed = 0;
         while (i--) {
-          this.seed += seed[i];
+          this.seed += seed.charCodeAt(i);
         }
       }
-      this.seed = seed !== undefined ? seed: Math.random();
+      else
+        this.seed = seed !== undefined ? seed : Math.random();
     }
 
     setSeed (seed) {
