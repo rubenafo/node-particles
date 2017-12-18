@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/figurebelow/node-particles/tree/master.svg?style=svg)](https://circleci.com/gh/figurebelow/node-particles/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/figurebelow/node-particles/badge.svg?branch=master)](https://coveralls.io/github/figurebelow/node-particles?branch=master)
-[![npm version](https://badge.fury.io/js/node-particles.svg)](https://badge.fury.io/js/node-particles)
+[![npm version](https://badge.fury.io/js/node-particles.svg)](https://badge.fury.io/js/node-particles)   
 Node-Particles
 ====================
 
